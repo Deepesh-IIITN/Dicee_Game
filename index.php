@@ -47,7 +47,7 @@
     }
 </script>
 <footer>
-    www 🎲 App Brewery 🎲 com
+    
 </footer>
 
 </html>
