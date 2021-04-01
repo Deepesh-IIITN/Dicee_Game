@@ -13,15 +13,15 @@
 <body>
 
     <div class="container">
-        <h1>Refresh Me</h1>
+        <h1>Refresh This Page</h1>
 
         <div class="dice">
-            <p>Player 1</p>
+            <p>Player-1</p>
             <img class="img1" src="">
         </div>
 
         <div class="dice">
-            <p>Player 2</p>
+            <p>Player-2</p>
             <img class="img2" src="">
         </div>
 
