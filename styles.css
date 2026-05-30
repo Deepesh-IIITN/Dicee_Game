@@ -2,34 +2,131 @@
   width: 70%;
   margin: auto;
   text-align: center;
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  max-width: 300px;
+  margin: 0 auto;
+}
+
+.input-group label {
+  color: #4ECCA3;
+  font-family: 'Indie Flower', cursive;
+  font-size: 1.5rem;
+  margin-bottom: 5px;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 10px;
+  font-size: 1.2rem;
+  border: 2px solid #4ECCA3;
+  border-radius: 5px;
+  background: #232931;
+  color: #EEEEEE;
+  font-family: 'Indie Flower', cursive;
+}
+
+.input-group input:focus {
+  outline: none;
+  border-color: #3ba87e;
+}
+
+.dice-container {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+  margin: 30px 0;
 }
 
 .dice {
   text-align: center;
-  display: inline-block;
-
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-body {
-  background-color: #393E46;
-}
-
-h1 {
-  margin: 30px;
-  font-family: 'Lobster', cursive;
-  text-shadow: 5px 0 #232931;
-  font-size: 8rem;
-  color: #4ECCA3;
-}
-
-p {
+.dice p {
   font-size: 2rem;
   color: #4ECCA3;
   font-family: 'Indie Flower', cursive;
+  margin-bottom: 10px;
 }
 
 img {
   width: 80%;
+  max-width: 150px;
+  transition: transform 0.3s;
+}
+
+.controls {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+button {
+  background-color: #4ECCA3;
+  color: #232931;
+  border: none;
+  padding: 15px 30px;
+  font-size: 1.5rem;
+  font-family: 'Lobster', cursive;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.1s ease;
+}
+
+button:hover {
+  background-color: #3ba87e;
+}
+
+button:active {
+  transform: scale(0.98);
+}
+
+#end-btn {
+  background-color: #E74C3C;
+  color: white;
+}
+
+#end-btn:hover {
+  background-color: #c0392b;
+}
+
+h1 {
+  margin: 30px 0;
+  font-family: 'Lobster', cursive;
+  text-shadow: 5px 0 #232931;
+  font-size: 5rem;
+  color: #4ECCA3;
+}
+
+#result {
+  font-size: 2.5rem;
+  color: #EEEEEE;
+  font-family: 'Lobster', cursive;
+  min-height: 3rem;
 }
 
 footer {
@@ -37,5 +134,4 @@ footer {
   color: #EEEEEE;
   text-align: center;
   font-family: 'Indie Flower', cursive;
-
 }

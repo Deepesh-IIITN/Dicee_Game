@@ -6,50 +6,106 @@
     <title>Dicee</title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css?family=Indie+Flower|Lobster" rel="stylesheet">
-
 </head>
-
 
 <body>
 
     <div class="container">
-        <h1>Refresh This Page</h1>
-
-        <div class="dice">
-            <p>Player-1</p>
-            <img class="img1" src="">
+        <!-- Setup Screen -->
+        <div id="setup-screen" class="screen">
+            <h1>Dicee Setup</h1>
+            <div class="input-group">
+                <label for="player1">Player 1 Name:</label>
+                <input type="text" id="player1" placeholder="Enter name">
+            </div>
+            <div class="input-group">
+                <label for="player2">Player 2 Name:</label>
+                <input type="text" id="player2" placeholder="Enter name">
+            </div>
+            <button id="start-btn">Start Game</button>
         </div>
 
-        <div class="dice">
-            <p>Player-2</p>
-            <img class="img2" src="">
+        <!-- Game Screen -->
+        <div id="game-screen" class="screen hidden">
+            <h1>Dicee</h1>
+            <div class="dice-container">
+                <div class="dice">
+                    <p id="p1-name-display">Player 1</p>
+                    <img class="img1" src="images/dice5.png">
+                </div>
+                <div class="dice">
+                    <p id="p2-name-display">Player 2</p>
+                    <img class="img2" src="images/dice5.png">
+                </div>
+            </div>
+            <h2 id="result">Press Play to start!</h2>
+            <div class="controls">
+                <button id="play-btn">Play</button>
+                <button id="end-btn">End Game</button>
+            </div>
         </div>
-
     </div>
 
+    <footer>
+        <p>© 2023 Dicee Game</p>
+    </footer>
+
+    <script>
+        const setupScreen = document.getElementById('setup-screen');
+        const gameScreen = document.getElementById('game-screen');
+        const startBtn = document.getElementById('start-btn');
+        const playBtn = document.getElementById('play-btn');
+        const endBtn = document.getElementById('end-btn');
+        const p1Input = document.getElementById('player1');
+        const p2Input = document.getElementById('player2');
+        const p1NameDisplay = document.getElementById('p1-name-display');
+        const p2NameDisplay = document.getElementById('p2-name-display');
+        const resultDisplay = document.getElementById('result');
+        const img1 = document.querySelector('.img1');
+        const img2 = document.querySelector('.img2');
+
+        startBtn.addEventListener('click', () => {
+            const p1 = p1Input.value.trim() || 'Player 1';
+            const p2 = p2Input.value.trim() || 'Player 2';
+            
+            p1NameDisplay.textContent = p1;
+            p2NameDisplay.textContent = p2;
+            
+            setupScreen.classList.add('hidden');
+            gameScreen.classList.remove('hidden');
+            resultDisplay.textContent = 'Press Play to start!';
+            img1.src = 'images/dice5.png';
+            img2.src = 'images/dice5.png';
+        });
+
+        playBtn.addEventListener('click', () => {
+            const v1 = Math.floor(Math.random() * 6) + 1;
+            const s1 = `images/dice${v1}.png`;
+            const v2 = Math.floor(Math.random() * 6) + 1;
+            const s2 = `images/dice${v2}.png`;
+            
+            img1.src = s1;
+            img2.src = s2;
+            
+            const p1 = p1NameDisplay.textContent;
+            const p2 = p2NameDisplay.textContent;
+            
+            if (v1 > v2) {
+                resultDisplay.textContent = `🚩 ${p1} Wins!`;
+            } else if (v2 > v1) {
+                resultDisplay.textContent = `${p2} Wins! 🚩`;
+            } else {
+                resultDisplay.textContent = 'It\'s a Draw!';
+            }
+        });
+
+        endBtn.addEventListener('click', () => {
+            gameScreen.classList.add('hidden');
+            setupScreen.classList.remove('hidden');
+            p1Input.value = '';
+            p2Input.value = '';
+        });
+    </script>
 
 </body>
-<script>
-    v1 = Math.floor(Math.random() * 6) + 1;
-    s1 = "images/dice" + String(v1) + ".png";
-    v2 = Math.floor(Math.random() * 6) + 1;
-    s2 = "images/dice" + String(v2) + ".png";
-    document.querySelectorAll("img")[0].setAttribute("src", s1);
-    document.querySelectorAll("img")[1].setAttribute("src", s2);
-    if (v1 > v2) {
-        document.querySelector("h1").innerHTML = "🚩 Player 1 Wins!";
-    } else {
-        if (v2 > v1) {
-            document.querySelector("h1").innerHTML = "Player 2 Wins! 🚩";
-        } else {
-            document.querySelector("h1").innerHTML = "Draw";
-        }
-    }
-</script>
-
-
-<footer>
-    
-</footer>
-
 </html>
